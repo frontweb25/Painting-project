@@ -3,19 +3,16 @@ const acordion = (acordion, content) => {
           acordionText = document.querySelectorAll(content);
 
 
+    acordionText.forEach(item => item.style.display = 'none');
 
-    function hideContent(el) {
-        el.forEach(block => {
-            block.classList.add('animated', 'fadeInDown');
-            block.classList.add('hide');
-        });      
-    }      
-
-    hideContent(acordionText);
 
     acordionBtn.forEach((btn, i) => {
         btn.addEventListener('click', function() {
-            this.nextElementSibling.classList.toggle('hide');
+            if(acordionText[i].style.display == 'none'){
+                acordionText[i].style.display = 'block';
+            } else if(acordionText[i].style.display == 'block'){
+                acordionText[i].style.display = 'none';
+            }
         });
     });
     
