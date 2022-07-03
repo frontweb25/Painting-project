@@ -1823,6 +1823,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_calc__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/calc */ "./src/js/modules/calc.js");
 /* harmony import */ var _modules_filter__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/filter */ "./src/js/modules/filter.js");
 /* harmony import */ var _modules_pictureSize__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/pictureSize */ "./src/js/modules/pictureSize.js");
+/* harmony import */ var _modules_acordion__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modules/acordion */ "./src/js/modules/acordion.js");
+
 
 
 
@@ -1846,7 +1848,40 @@ window.addEventListener('DOMContentLoaded', () => {
   Object(_modules_calc__WEBPACK_IMPORTED_MODULE_6__["default"])('#size', '#material', '#options', '.promocode', '.calc-price');
   Object(_modules_filter__WEBPACK_IMPORTED_MODULE_7__["default"])();
   Object(_modules_pictureSize__WEBPACK_IMPORTED_MODULE_8__["default"])('.sizes-block');
+  Object(_modules_acordion__WEBPACK_IMPORTED_MODULE_9__["default"])('.accordion-heading', '.accordion-block');
 });
+
+/***/ }),
+
+/***/ "./src/js/modules/acordion.js":
+/*!************************************!*\
+  !*** ./src/js/modules/acordion.js ***!
+  \************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+const acordion = (acordion, content) => {
+  const acordionBtn = document.querySelectorAll(acordion),
+        acordionText = document.querySelectorAll(content);
+
+  function hideContent(el) {
+    el.forEach(block => {
+      block.classList.add('animated', 'fadeInDown');
+      block.classList.add('hide');
+    });
+  }
+
+  hideContent(acordionText);
+  acordionBtn.forEach((btn, i) => {
+    btn.addEventListener('click', function () {
+      this.nextElementSibling.classList.toggle('hide');
+    });
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (acordion);
 
 /***/ }),
 
